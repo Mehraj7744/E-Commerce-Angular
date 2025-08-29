@@ -1,0 +1,79 @@
+.flipkart-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.flipkart-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.img-container {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f8f8;
+}
+
+.img-container img {
+  max-height: 160px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.card-details {
+  padding: 10px 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+  color: #212121;
+  line-height: 1.4;
+}
+
+.product-category {
+  font-size: 13px;
+  color: #878787;
+  margin: 2px 0 6px;
+}
+
+.price-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 6px 0;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: 600;
+  color: #212121;
+}
+
+.rating {
+  background: #388e3c;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.description {
+  font-size: 13px;
+  color: #555;
+  margin: 6px 0;
+  flex-grow: 1;
+}

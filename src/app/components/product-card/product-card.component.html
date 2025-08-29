@@ -1,0 +1,27 @@
+<div class="flipkart-card">
+  <div class="img-container">
+    <img [src]="product.thumbnail" alt="{{ product.title }}">
+  </div>
+
+  <div class="card-details">
+    <h6 class="product-title">{{ product.title }}</h6>
+    <p class="product-category">{{ product.category }}</p>
+
+    <div class="price-rating">
+      <span class="price">₹{{ product.price }}</span>
+      <span class="rating">⭐ {{ product.rating }}</span>
+    </div>
+
+    <p class="description">{{ product.description | slice:0:50 }}...</p>
+
+    <div class="d-flex gap-2">
+      <button class="btn btn-sm btn-primary flex-fill">Add to Cart</button>
+      <!-- View Details button with query parameter -->
+      <a [routerLink]="['/product-details']" 
+         [queryParams]="{ id: product.id }" 
+         class="btn btn-sm btn-outline-secondary flex-fill">
+        View Details
+      </a>
+    </div>
+  </div>
+</div>

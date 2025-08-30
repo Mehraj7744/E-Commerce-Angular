@@ -1,51 +1,53 @@
-<div class="amazon-card p-3 border rounded shadow-sm bg-white">
+<div class="bg-magenta-50 max-h-64 border rounded-lg shadow-sm p-4 hover:shadow-md transition">
 
   <!-- Product Image (clickable) -->
-  <div class="text-center mb-3">
+  <div class="text-center mb-2">
     <a [routerLink]="['/product-details', product.id]">
-      <img [src]="product.thumbnail" alt="{{ product.title }}" 
-           class="img-fluid" style="max-height: 180px;">
+      <img [src]="product.thumbnail"
+           alt="{{ product.title }}"
+           class="mx-auto max-h-20 object-contain">
     </a>
   </div>
 
   <!-- Product Title (clickable) -->
-  <h6 class="product-title text-primary" style="cursor:pointer;">
-    <a [routerLink]="['/product-details', product.id]" class="text-decoration-none text-primary">
-      {{ product.title }}
-    </a>
-  </h6>
+ <h6 class="font-semibold text-blue-600 hover:underline cursor-pointer truncate w-48">
+  <a [routerLink]="['/product-details', product.id]">
+    {{ product.title }}
+  </a>
+</h6>
+
 
   <!-- Category -->
-  <p class="text-muted small mb-1">{{ product.category }}</p>
+  <p class="text-gray-500 text-sm mb-1">{{ product.category | titlecase }}</p>
 
   <!-- Rating -->
-  <div class="d-flex align-items-center mb-2">
-    <div class="text-warning">
+  <!-- <div class="flex items-center mb-2">
+    <div class="text-yellow-400 flex">
       <i *ngFor="let star of getStars(product.rating)" class="bi bi-star-fill"></i>
       <i *ngIf="getHalfStar(product.rating)" class="bi bi-star-half"></i>
     </div>
-    <span class="ms-2 text-primary">({{ product.reviews.length }} ratings)</span>
-    <span class="small text-secondary ms-2">({{ product.rating }})</span>
-  </div>
+    <span class="ml-2 text-blue-600 text-sm">({{ product.reviews.length }} ratings)</span>
+    <span class="ml-2 text-gray-500 text-xs">({{ product.rating }})</span>
+  </div> -->
 
   <!-- Price -->
   <div class="mb-2">
-    <span class="h6 text-danger fw-bold">₹{{ product.price }}</span>
-    <span class="text-muted text-decoration-line-through ms-2">
+    <span class="text-lg font-bold text-red-600">₹{{ product.price }}</span>
+    <span class="ml-2 text-gray-400 line-through">
       ₹{{ (product.price / (1 - product.discountPercentage/100)).toFixed(0) }}
     </span>
-    <span class="badge bg-success ms-2">-{{ product.discountPercentage }}%</span>
+    <span class="ml-2 bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded">
+      -{{ product.discountPercentage }}%
+    </span>
   </div>
 
   <!-- Short Description -->
-  <p class="small text-truncate">{{ product.description }}</p>
+  <!-- <p class="text-sm text-gray-600 truncate">{{ product.description }}</p> -->
 
   <!-- Buttons -->
-  <div class="d-grid gap-2 mt-3">
-    <button class="btn btn-sm btn-warning fw-bold">Add to Cart</button>
-    <!-- <a [routerLink]="['/product-details', product.id]" 
-       class="btn btn-sm btn-outline-secondary">
-      View Details
-    </a> -->
+  <div class="mt-2">
+    <button class=" bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded text-sm">
+      Add to Cart
+    </button>
   </div>
 </div>

@@ -1,19 +1,20 @@
-
+<!-- Category Bar Component -->
   <app-category-bar></app-category-bar>
 
-
-
-
-
-
-<div *ngIf="loading" class="text-center mt-6">
-  <div class="spinner-border text-primary" role="status"></div>
+  
+<!-- Loader -->
+<div *ngIf="loading" class="flex justify-center mt-6">
+  <div class="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
 </div>
 
-<div class="container-fluid  ">
-  <div class="row">
-    <div class="col-md-3 mb-3" *ngFor="let product of products">
+<!-- Product Grid -->
+<div class="w-full mt-6 px-2">
+  <!-- <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"> -->
+    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
+
+    <div *ngFor="let product of products">
       <app-product-card [product]="product"></app-product-card>
     </div>
   </div>
 </div>
+

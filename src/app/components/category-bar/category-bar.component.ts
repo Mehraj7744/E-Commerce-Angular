@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -7,8 +7,19 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./category-bar.component.css']
 })
 export class CategoryBarComponent implements OnInit {
-  categories: any[] = [];
+  
   loading = true;
+
+
+
+  @Output() categorySelected = new EventEmitter<string>();
+
+  categories: any[] = [];
+
+  onCategorySelect(category: string) {
+    this.categorySelected.emit(category);
+  }
+
 
   constructor(private http: HttpClient) {}
 
@@ -24,5 +35,9 @@ export class CategoryBarComponent implements OnInit {
           this.loading = false;
         }
       });
+
+
+
+      
   }
 }

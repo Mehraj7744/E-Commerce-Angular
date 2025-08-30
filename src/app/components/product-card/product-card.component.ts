@@ -8,4 +8,15 @@ import { Product } from '../../services/product.service';
 })
 export class ProductCardComponent {
   @Input() product!: Product;
+
+
+   getStars(rating: number): number[] {
+    const fullStars = Math.floor(rating);
+    return Array(fullStars).fill(0);
+  }
+
+  /** Returns true if rating has a half star */
+  getHalfStar(rating: number): boolean {
+    return rating % 1 >= 0.5;
+  }
 }

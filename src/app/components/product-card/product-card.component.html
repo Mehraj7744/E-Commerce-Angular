@@ -1,28 +1,51 @@
-<div class="flipkart-card">
-  <div class="img-container">
-    <img [src]="product.thumbnail" alt="{{ product.title }}">
+<div class="amazon-card p-3 border rounded shadow-sm bg-white">
+
+  <!-- Product Image (clickable) -->
+  <div class="text-center mb-3">
+    <a [routerLink]="['/product-details', product.id]">
+      <img [src]="product.thumbnail" alt="{{ product.title }}" 
+           class="img-fluid" style="max-height: 180px;">
+    </a>
   </div>
 
-  <div class="card-details">
-    <h6 class="product-title">{{ product.title }}</h6>
-    <p class="product-category">{{ product.category }}</p>
+  <!-- Product Title (clickable) -->
+  <h6 class="product-title text-primary" style="cursor:pointer;">
+    <a [routerLink]="['/product-details', product.id]" class="text-decoration-none text-primary">
+      {{ product.title }}
+    </a>
+  </h6>
 
-    <div class="price-rating">
-      <span class="price">₹{{ product.price }}</span>
-      <span class="rating">⭐ {{ product.rating }}</span>
+  <!-- Category -->
+  <p class="text-muted small mb-1">{{ product.category }}</p>
+
+  <!-- Rating -->
+  <div class="d-flex align-items-center mb-2">
+    <div class="text-warning">
+      <i *ngFor="let star of getStars(product.rating)" class="bi bi-star-fill"></i>
+      <i *ngIf="getHalfStar(product.rating)" class="bi bi-star-half"></i>
     </div>
+    <span class="ms-2 text-primary">({{ product.reviews.length }} ratings)</span>
+    <span class="small text-secondary ms-2">({{ product.rating }})</span>
+  </div>
 
-    <p class="description">{{ product.description | slice:0:50 }}...</p>
+  <!-- Price -->
+  <div class="mb-2">
+    <span class="h6 text-danger fw-bold">₹{{ product.price }}</span>
+    <span class="text-muted text-decoration-line-through ms-2">
+      ₹{{ (product.price / (1 - product.discountPercentage/100)).toFixed(0) }}
+    </span>
+    <span class="badge bg-success ms-2">-{{ product.discountPercentage }}%</span>
+  </div>
 
-    <div class="d-flex gap-2">
-      <button class="btn btn-sm btn-primary flex-fill">Add to Cart</button>
-      <!-- View Details button with query parameter -->
-     
+  <!-- Short Description -->
+  <p class="small text-truncate">{{ product.description }}</p>
 
-      <a [routerLink]="['/product-details', product.id]" class="btn btn-sm btn-outline-secondary flex-fill">
-        View Details
-      </a>
-
-    </div>
+  <!-- Buttons -->
+  <div class="d-grid gap-2 mt-3">
+    <button class="btn btn-sm btn-warning fw-bold">Add to Cart</button>
+    <!-- <a [routerLink]="['/product-details', product.id]" 
+       class="btn btn-sm btn-outline-secondary">
+      View Details
+    </a> -->
   </div>
 </div>

@@ -1,0 +1,37 @@
+.amazon-navbar {
+  background-color: #131921 !important; /* Amazon dark navy */
+  padding: 0.5rem 1rem;
+}
+
+.amazon-navbar .navbar-brand {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff9900 !important; /* Amazon yellow */
+}
+
+.amazon-navbar .nav-link {
+  color: #ffffff !important;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.amazon-navbar .nav-link:hover {
+  color: #ff9900 !important; /* Amazon hover yellow */
+}
+
+.search-bar {
+  width: 50%; /* center focus */
+  max-width: 600px;
+}
+
+.search-bar input {
+  border-radius: 4px 0 0 4px;
+  border: none;
+}
+
+.search-bar button {
+  border-radius: 0 4px 4px 0;
+  border: none;
+  font-weight: bold;
+}

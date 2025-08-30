@@ -15,6 +15,7 @@ import { TestComponent } from './components/test/test.component';
 import { CartsComponent } from './components/carts/carts.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { CategoryBarComponent } from './components/category-bar/category-bar.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     CartsComponent,
     ProductListComponent,
     ProductDetailsComponent,
+    CategoryBarComponent,
   ],
   imports: [
     BrowserModule,

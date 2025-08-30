@@ -1,0 +1,12 @@
+<div *ngIf="loading" class="text-center py-3">
+  <div class="spinner-border text-warning" role="status"></div>
+</div>
+
+<!-- Amazon-style category bar -->
+<nav *ngIf="!loading" class="category-bar d-flex align-items-center px-2">
+  <a *ngFor="let cat of categories"
+     [routerLink]="['/category', cat.slug]"
+     class="category-link px-3 py-2">
+    {{ cat.name }}
+  </a>
+</nav>

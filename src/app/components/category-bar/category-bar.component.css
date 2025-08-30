@@ -1,0 +1,23 @@
+.category-bar {
+  background-color: #232f3e; /* Amazon dark navy */
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none; /* hide scrollbar in Firefox */
+}
+
+.category-bar::-webkit-scrollbar {
+  display: none; /* hide scrollbar in Chrome */
+}
+
+.category-link {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.category-link:hover {
+  background-color: #37475a; /* Amazon hover color */
+  border-radius: 4px;
+}

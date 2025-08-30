@@ -1,1 +1,39 @@
-<p>product-details works!</p>
+<div class="text-center my-5" *ngIf="loading">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <p class="mt-2">Loading product details...</p>
+</div>
+
+<div *ngIf="!loading && product" class="container my-5">
+  <div class="row">
+    <div class="col-md-6">
+      <img [src]="product.thumbnail" class="img-fluid rounded shadow" alt="{{ product.title }}">
+    </div>
+    <div class="col-md-6">
+      <h3>{{ product.title }}</h3>
+      <p><strong>Brand:</strong> {{ product.brand }}</p>
+      <p><strong>Description:</strong> {{ product.description }}</p>
+      <p><strong>Price:</strong> ₹{{ product.price }}</p>
+      <p>
+        <strong>Stock:</strong>
+        <span *ngIf="product.stock > 5" class="text-success fw-bold">Available</span>
+        <span *ngIf="product.stock <= 5" class="text-danger fw-bold">⚡ Hurry! Few left</span>
+      </p>
+      <div class="text-warning mb-3">
+<!-- Full stars -->
+<i *ngFor="let star of getStars(product.rating)" class="bi bi-star-fill text-warning"></i>
+
+<!-- Half star -->
+<i *ngIf="getHalfStar(product.rating)" class="bi bi-star-half text-warning"></i>
+        <i *ngIf="product.rating % 1 >= 0.5" class="bi bi-star-half"></i>
+      </div>
+      <button class="btn btn-primary me-2">Add to Cart</button>
+      <a routerLink="/products" class="btn btn-outline-secondary">Back</a>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!loading && !product" class="text-center my-5">
+  <h4>Product not found.</h4>
+</div>

@@ -17,11 +17,12 @@
     <div class="d-flex gap-2">
       <button class="btn btn-sm btn-primary flex-fill">Add to Cart</button>
       <!-- View Details button with query parameter -->
-      <a [routerLink]="['/product-details']" 
-         [queryParams]="{ id: product.id }" 
-         class="btn btn-sm btn-outline-secondary flex-fill">
+     
+
+      <a [routerLink]="['/product-details', product.id]" class="btn btn-sm btn-outline-secondary flex-fill">
         View Details
       </a>
+
     </div>
   </div>
 </div>

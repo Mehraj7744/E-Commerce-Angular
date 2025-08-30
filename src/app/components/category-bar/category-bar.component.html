@@ -3,7 +3,7 @@
 </div>
 
 <!-- Amazon-style category bar -->
-<nav *ngIf="!loading" class="category-bar d-flex align-items-center px-2">
+<nav *ngIf="!loading" class="category-bar  d-flex align-items-center px-2">
   <a *ngFor="let cat of categories"
      [routerLink]="['/category', cat.slug]"
      class="category-link px-3 py-2">

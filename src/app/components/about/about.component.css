@@ -1,8 +1,8 @@
 .about-container {
-    max-width: 900px;
-    margin: 40px auto;
+    max-width: 100%;
+    margin: auto;
     padding: 32px;
-    background: #fff;
+    background: #e8eaeb;
     border-radius: 12px;
     box-shadow: 0 2px 16px rgba(0,0,0,0.07);
     text-align: center;
@@ -41,4 +41,16 @@
 .feature p {
     color: #666;
     font-size: 1rem;
+}
+
+.about-container h1 {
+  font-size: 2.5rem;
+}
+
+.about-features .feature img {
+  transition: transform 0.3s ease;
+}
+
+.about-features .feature:hover img {
+  transform: scale(1.1);
 }
